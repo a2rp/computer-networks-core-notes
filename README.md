@@ -7,7 +7,7 @@ It focuses on clarity, protocol-level understanding, real-world packet flow, and
 
 ---
 
-![alt text](image.png)
+![alt text](image1.png)
 
 ---
 
