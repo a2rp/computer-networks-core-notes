@@ -12,7 +12,7 @@ import {
 } from "react-icons/fi";
 
 const IpAddressing = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const meta = useMemo(() => {
         return {

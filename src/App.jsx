@@ -1,5 +1,5 @@
 // App.jsx
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Styled } from "./App.styled";
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -18,27 +18,41 @@ import PerformanceReliability from "./topics/performanceReliability";
 import MustKnowQna from "./topics/mustKnowQna";
 
 const App = () => {
+    const [activeTopic, setActiveTopic] = useState("about");
+    const mainRef = useRef(null);
+    const topics = [
+        ["about", "Overview", AboutComputerNetworks],
+        ["basics", "Network Basics", NetworkBasicsModels],
+        ["physical", "Physical and Data Link", PhysicalDataLinkEssentials],
+        ["ip", "IP Addressing", IpAddressing],
+        ["routing", "Routing", RoutingBasics],
+        ["transport", "Transport Layer", TransportLayerTcpUdp],
+        ["application", "Application Protocols", ApplicationLayerProtocols],
+        ["web", "Web Networking", WebNetworkingPracticalStuff],
+        ["wireless", "Wireless and Mobile", WirelessMobileBasics],
+        ["security", "Security Basics", SecurityBasics],
+        ["devices", "Network Devices", NetworkDevicesTools],
+        ["performance", "Performance and Reliability", PerformanceReliability],
+        ["qna", "Must-Know Q&A", MustKnowQna],
+    ];
+    const ActiveTopic = topics.find(([id]) => id === activeTopic)?.[2] || AboutComputerNetworks;
+
+    useEffect(() => {
+        mainRef.current?.scrollTo({ top: 0, behavior: "auto" });
+    }, [activeTopic]);
+
     return (
         <Styled.Wrapper>
             <Styled.Header>
                 <Header />
             </Styled.Header>
-            <Styled.Main>
-                <div className="contentWrapper">
-                    <AboutComputerNetworks />
-
-                    <NetworkBasicsModels />
-                    <PhysicalDataLinkEssentials />
-                    <IpAddressing />
-                    <RoutingBasics />
-                    <TransportLayerTcpUdp />
-                    <ApplicationLayerProtocols />
-                    <WebNetworkingPracticalStuff />
-                    <WirelessMobileBasics />
-                    <SecurityBasics />
-                    <NetworkDevicesTools />
-                    <PerformanceReliability />
-                    <MustKnowQna />
+            <Styled.Main ref={mainRef}>
+                <div className="workspaceLayout">
+                    <aside className="sideMenu" aria-label="Computer networks topics">
+                        <p className="menuLabel">Study guide</p>
+                        <nav>{topics.map(([id, label]) => <button key={id} type="button" className={activeTopic === id ? "active" : ""} onClick={() => setActiveTopic(id)}>{label}</button>)}</nav>
+                    </aside>
+                    <section className="contentWrapper" aria-live="polite"><ActiveTopic /></section>
                 </div>
 
                 <div className="footerWrapper">

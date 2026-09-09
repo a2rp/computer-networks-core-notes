@@ -6,7 +6,7 @@ import { qnaData } from "./qnaData";
 import { FiChevronDown, FiHelpCircle } from "react-icons/fi";
 
 const MustKnowQna = () => {
-    const [openMain, setOpenMain] = useState(false);
+    const [openMain, setOpenMain] = useState(true);
     const [openMap, setOpenMap] = useState({});
 
     const toggleItem = (key) => {

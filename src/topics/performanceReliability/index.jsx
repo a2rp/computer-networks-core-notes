@@ -14,7 +14,7 @@ import {
 
 const PerformanceReliability = () => {
     // by default collapsed
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const meta = useMemo(() => {
         return {

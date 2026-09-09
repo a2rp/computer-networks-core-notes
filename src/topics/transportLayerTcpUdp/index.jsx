@@ -11,7 +11,7 @@ import {
 } from "react-icons/fi";
 
 const TransportLayerTcpUdp = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const meta = useMemo(() => {
         return {
