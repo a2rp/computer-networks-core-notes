@@ -16,6 +16,7 @@ import SecurityBasics from "./topics/securityBasics";
 import NetworkDevicesTools from "./topics/networkDevicesTools";
 import PerformanceReliability from "./topics/performanceReliability";
 import MustKnowQna from "./topics/mustKnowQna";
+import { FiArrowUp } from "react-icons/fi";
 
 const App = () => {
     const [activeTopic, setActiveTopic] = useState("about");
@@ -54,6 +55,16 @@ const App = () => {
                     </aside>
                     <section className="contentWrapper" aria-live="polite"><ActiveTopic /></section>
                 </div>
+
+                <button
+                    type="button"
+                    className="scrollTopButton"
+                    aria-label="Scroll content to top"
+                    title="Scroll to top"
+                    onClick={() => mainRef.current?.scrollTo({ top: 0, behavior: "smooth" })}
+                >
+                    <FiArrowUp />
+                </button>
 
                 <div className="footerWrapper">
                     <Footer />
