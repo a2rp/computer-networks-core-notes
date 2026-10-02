@@ -2,7 +2,7 @@
 
 A focused React and Vite revision workspace for core Computer Networks concepts, protocols, and practical networking patterns.
 
-![Computer Networks Core Notes screenshot](screenshot.png)
+![Computer Networks Core Notes screenshot](./screenshot.jpg)
 
 ## Features
 
